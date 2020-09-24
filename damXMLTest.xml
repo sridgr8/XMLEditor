@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+  <user>
+    <username num="1">test_Username1</username>
+    <password num="2">test_Password1</password>
+    <firstname num="3">test_FN1</firstname>
+    <lastname num="4">test_LN1</lastname>
+  </user>
+  <user>
+    <username num="1">test_Username2</username>
+    <password num="2">test_Password2</password>
+    <firstname num="3">test_FN2</firstname>
+    <lastname num="4">test_LN2</lastname>
+  </user>
+</accounts>

@@ -13,25 +13,13 @@
 
     <div class="container">
       <h2>XML Data Viewer</h2>
-      <button type="button" onclick="loadHTMLForm()" class="btn btn-info">Add New XML Data</button>
-      <button type="button" onclick="loadXMLDoc()" class="btn btn-success">View XML Content</button><br><br>
-      <div id="loadForm"></div>
+      <button type="button" onclick="loadECommDoc()" class="btn btn-info">View EComm XML Content</button>
+      <button type="button" onclick="loadDAMDoc()" class="btn btn-success">View DAM XML Content</button><br><br>
       <table class="table table-striped" id="loadXML"></table>
     </div>
 
     <script>
-
-      function loadHTMLForm(){
-        var txtForm="<form action=\"writeToXML.php\" method=\"post\"><table class=\"table\">" +
-        "<tr><td>Username: </td><td><input type=\"text\" name=\"username\"></td></tr>" +
-        "<tr><td>Password: </td><td><input type=\"text\" name=\"password\"></td></tr>" +
-        "<tr><td>First Name: </td><td><input type=\"text\" name=\"firstname\"></td></tr>" +
-        "<tr><td>Last Name: </td><td>   <input type=\"text\" name=\"lastname\"></td></tr>" +
-        "<tr><td align=\"center\"><input type=\"submit\" name=\"ok\" value=\"Add New XML Data\" class=\"btn btn-primary\"/></td></tr>" +
-        "</form><br>";
-        document.getElementById("loadForm").innerHTML = txtForm;
-      }
-      function loadXMLDoc() {
+      function loadDAMDoc() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
@@ -39,6 +27,16 @@
           }
         };
         xmlhttp.open("GET", "damXML.xml", true);
+        xmlhttp.send();
+      }
+      function loadECommDoc() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            myFunction(this);
+          }
+        };
+        xmlhttp.open("GET", "ecomXML.xml", true);
         xmlhttp.send();
       }
       function myFunction(xml) {
@@ -59,6 +57,27 @@
         }
         document.getElementById("loadXML").innerHTML = table;
       }
+
+      function myFunctionTest(xml) {
+        var i;
+        var xmlDoc = xml.responseXML;
+        var table="<tr><th>Username</th><th>Password</th><th>First Name</th><th>Last Name</th></tr>";
+        var x = xmlDoc.getElementById("num")
+        for (i = 0; i <x.length; i++) { 
+          table += "<tr><td>" +
+          x[i].getElementsByTagName("username")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("password")[0].childNodes[0].nodeValue +
+
+          "</td><td>" +
+          x[i].getElementsByTagName("firstname")[0].childNodes[0].nodeValue +
+          "</td><td>" +
+          x[i].getElementsByTagName("lastname")[0].childNodes[0].nodeValue +
+          "</td></tr>";
+        }
+        document.getElementById("loadXML").innerHTML = table;
+      }
+
       </script>
   </body>
 </html>
