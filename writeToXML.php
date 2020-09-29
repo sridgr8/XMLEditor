@@ -1,7 +1,7 @@
 <?php
 if(isset($_REQUEST['ok'])){
   $xml = new DOMDocument("1..0","UTF-8");
-  $xml->load("damXML.xml");
+  $xml->load("xmlFiles/damFiles/damXML.xml");
   $rootTag = $xml->getElementsByTagName("accounts")->item(0);
   $dataTag = $xml->createElement("user");
   $usernameTag = $xml->createElement("username",$_REQUEST['username']);
@@ -13,7 +13,7 @@ if(isset($_REQUEST['ok'])){
   $dataTag->appendChild($firstnameTag);
   $dataTag->appendChild($lastnameTag);
   $rootTag->appendChild($dataTag);
-  $xml->save("damXML.xml");
-  header("Location: index.html");
+  $xml->save("xmlFiles/damFiles/damXML.xml");
+  header("Location: testIndex.php");
 }
 ?>

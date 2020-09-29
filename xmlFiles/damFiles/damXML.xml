@@ -18,4 +18,4 @@
     <firstname>test_FN2</firstname>
     <lastname>test_LN2</lastname>
   </user>
-  <user><username>d</username><password>d</password><firstname>d</firstname><lastname>d</lastname></user><user><username>r</username><password>r</password><firstname>r</firstname><lastname>r</lastname></user></accounts>
+<user><username>r</username><password>e</password><firstname>s</firstname><lastname>t</lastname></user><user><username>t</username><password>r</password><firstname>a</firstname><lastname>p</lastname></user></accounts>
