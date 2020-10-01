@@ -14,7 +14,7 @@
     <div class="container">
       <h2>XML Data Viewer</h2>
       <table class="table table-borderless table-dark table-striped table-hover table-responsive-lg">
-        <tr><td><h6>DAM Project</h6></td><td><button type="button" onclick="loadHTMLForm()" class="btn btn-info">Add New Data</button></td>
+        <tr><td><h6>DAM Project</h6></td><td><button type="button" onclick="loadHTMLForm()" class="btn btn-outline-info">Add New Row</button></td>
         <?php
             $out = array();
             foreach (glob('xmlFiles/damFiles/*.xml') as $filename) {
@@ -24,14 +24,14 @@
             $fileCount=sizeof($out);
             while($fileCount>0){
                 ?>
-            <td><button type="button" onclick="loadXMLDoc('<?php echo $out[$fileCount-1]; ?>')" class="btn btn-success"><?php echo $out[$fileCount-1]; ?></button></td>
+            <td><button type="button" onclick="loadXMLDoc('<?php echo $out[$fileCount-1]; ?>')" class="btn btn-outline-success"><?php echo $out[$fileCount-1]; ?></button></td>
                 <?php
             $fileCount = $fileCount - 1;
             }
         
         ?>
 </tr>
-<tr><td><h6>EComm Project</h6></td><td><button type="button" onclick="loadHTMLForm()" class="btn btn-info">Add New Data</button></td>
+<tr><td><h6>EComm Project</h6></td><td><button type="button" onclick="loadHTMLForm()" class="btn btn-outline-info">Add New Row</button></td>
         <?php
             $out = array();
             foreach (glob('xmlFiles/ecommFiles/*.xml') as $filename) {
@@ -41,7 +41,7 @@
             $fileCount=sizeof($out);
             while($fileCount>0){
                 ?>
-            <td><button type="button" onclick="loadXMLDoc('<?php echo $out[$fileCount-1]; ?>')" class="btn btn-success"><?php echo $out[$fileCount-1]; ?></button></td>
+            <td><button type="button" onclick="loadXMLDoc('<?php echo $out[$fileCount-1]; ?>')" class="btn btn-outline-success"><?php echo $out[$fileCount-1]; ?></button></td>
                 <?php
             $fileCount = $fileCount - 1;
             }
@@ -84,8 +84,8 @@
           "</td><td>" +
           x[i].getElementsByTagName("lastname")[0].childNodes[0].nodeValue +
           "</td>" + 
-          "<td><button type=\"button\" class=\"btn btn-warning\">Edit</button></td>" + 
-          "<td><button type=\"button\" class=\"btn btn-danger\">Delete</button></td></tr>";
+          "<td><button type=\"button\" class=\"btn btn-outline-warning\">Edit</button></td>" + 
+          "<td><button type=\"button\" class=\"btn btn-outline-danger\">Delete</button></td></tr>";
         }
         document.getElementById("loadXML").innerHTML = table;
     }
@@ -95,7 +95,7 @@
         "<tr><td>Password: </td><td><input type=\"text\" name=\"password\"></td></tr>" +
         "<tr><td>First Name: </td><td><input type=\"text\" name=\"firstname\"></td></tr>" +
         "<tr><td>Last Name: </td><td>   <input type=\"text\" name=\"lastname\"></td></tr>" +
-        "<tr><td align=\"center\"><input type=\"submit\" name=\"ok\" value=\"Add New XML Data\" class=\"btn btn-primary\"/></td></tr>" +
+        "<tr><td align=\"center\"><input type=\"submit\" name=\"ok\" value=\"Add New XML Data\" class=\"btn btn-outline-primary\"/></td></tr>" +
         "</form><br>";
         document.getElementById("loadForm").innerHTML = txtForm;
       }
